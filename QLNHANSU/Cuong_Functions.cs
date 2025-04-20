@@ -10,21 +10,39 @@ namespace QLNHANSU
 {
     public static class Cuong_Functions
     {
+        //public static int demSoNgayLamViecTrongThang(int thang, int nam)
+        //{
+        //    int dem = 0;
+        //    DateTime f = new DateTime(nam, thang, 01);
+        //    int x = f.Month + 1;
+        //    while (f.Month < x)
+        //    {
+        //        dem = dem + 1;
+        //        if (f.DayOfWeek == DayOfWeek.Sunday)
+        //        {
+        //            dem = dem - 1;
+        //        }
+        //        f = f.AddDays(1);
+        //    }
+        //    return dem;
+        //}
         public static int demSoNgayLamViecTrongThang(int thang, int nam)
         {
             int dem = 0;
-            DateTime f = new DateTime(nam, thang, 01);
-            int x = f.Month + 1;
-            while (f.Month < x)
+            DateTime f = new DateTime(nam, thang, 1); // Ngày đầu tiên của tháng
+
+            // Duyệt qua các ngày trong tháng
+            while (f.Month == thang)
             {
-                dem = dem + 1;
-                if (f.DayOfWeek == DayOfWeek.Sunday)
+                dem++; // Tăng số ngày
+                if (f.DayOfWeek == DayOfWeek.Sunday) // Trừ đi nếu là Chủ nhật
                 {
-                    dem = dem - 1;
+                    dem--;
                 }
-                f = f.AddDays(1);
+                f = f.AddDays(1); // Chuyển sang ngày tiếp theo
             }
-            return dem;
+
+            return dem; // Trả về số ngày làm việc
         }
         public static int laySoNgayCuaThang(int thang, int nam)
         {
@@ -65,7 +83,7 @@ namespace QLNHANSU
 
         public static void taoKetNoi()
         {
-            con.ConnectionString = "Data Source=LAPTOP-08FUB1Q3\\NGUYENHUNGCUONG;Initial Catalog=QLNHANSU;Integrated Security=True";
+            con.ConnectionString = "data source=CUONGNH-ITHPG\\HUNGCUONG;initial catalog=QLNHANSU;integrated security=True;encrypt=True;trustservercertificate=True;MultipleActiveResultSets=True;App=EntityFramework&quot";
             try
             {
                 con.Open();

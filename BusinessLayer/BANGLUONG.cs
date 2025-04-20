@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace BusinessLayer
@@ -18,33 +19,73 @@ namespace BusinessLayer
         {
             return db.tb_BANGLUONG.Where(x => x.MAKYCONG == makycong).ToList();
         }
+        //public float luong1ngaycong(int makycong, int manv)
+        //{
+        //    var hd = db.tb_HOPDONG.FirstOrDefault(x => x.MANV == manv);
+        //    float luong1ngay =0;
+        //    if (hd != null)
+        //    {
+        //        var kcct = db.tb_KYCONGCHITIET.FirstOrDefault(x => x.MAKYCONG == makycong && x.MANV == manv); ;
+        //        double hesoluong = Convert.ToDouble(hd.HESOLUONG);
+        //        luong1ngay = (float) (hd.LUONGCOBAN * hesoluong / Convert.ToDouble(kcct.NGAYCONG));
+                
+        //    }
+        //    return luong1ngay;
+
+        //}
+        public float luong1ngaycong(int makycong, int manv)
+        {
+            // Khai báo lương 1 ngày mặc định là 0
+            float luong1ngay = 0;
+
+            // Lấy thông tin hợp đồng
+            var hd = db.tb_HOPDONG.FirstOrDefault(x => x.MANV == manv);
+            if (hd != null)
+            {
+                // Lấy thông tin công chi tiết
+                var kcct = db.tb_KYCONGCHITIET.FirstOrDefault(x => x.MAKYCONG == makycong && x.MANV == manv);
+                if (kcct != null && kcct.NGAYCONG > 0) // Kiểm tra kcct != null và ngày công hợp lệ
+                {
+                    double hesoluong = Convert.ToDouble(hd.HESOLUONG);
+                    luong1ngay = (float)(hd.LUONGCOBAN * hesoluong / Convert.ToDouble(kcct.NGAYCONG));
+                }
+            }
+
+            // Trả về lương 1 ngày
+            return luong1ngay;
+        }
+
         public void TinhLuongNhanVien (int makycong)
         {
-            double luongngaythuong, luongphep, luongtangca, luongchunhat, luongngayle, phucap, ungluong, thuclanh, hesoluong;
+            remove(makycong);
+
+            double luongngaythuong, luongphep, luongtangca, luongchunhat, luongngayle, phucap, ungluong, thuclanh, hesoluong, luongkphep;
             var lstNV = db.tb_NHANVIEN.Where(x => x.DATHOIVIEC == null).ToList();
             foreach (var item in lstNV)
             {
                 var hd = db.tb_HOPDONG.FirstOrDefault(x=>x.MANV==item.MANV);
                 if (hd != null)
                 {
-                    var kcct = db.tb_KYCONGCHITIET.FirstOrDefault(x => x.MAKYCONG == makycong && x.MANV == item.MANV); ;
+                    var kcct = db.tb_KYCONGCHITIET.FirstOrDefault(x => x.MAKYCONG == makycong && x.MANV == item.MANV); 
                     hesoluong = Convert.ToDouble(hd.HESOLUONG);
                     var luong1ngaycong = hd.LUONGCOBAN * hesoluong / Convert.ToDouble(kcct.NGAYCONG);
                     //tính lương
                     luongngaythuong = Convert.ToDouble(kcct.TONGNGAYCONG * luong1ngaycong);
-                    luongphep = Convert.ToDouble(kcct.NGAYPHEP * luong1ngaycong * 0.3);
+                    luongphep = Convert.ToDouble(kcct.NGAYPHEP * luong1ngaycong);
+                    luongkphep = Convert.ToDouble(kcct.NGHIKHONGPHEP * luong1ngaycong * 0);
                     luongchunhat = Convert.ToDouble(kcct.CONGCHUNHAT * luong1ngaycong * 2);
                     luongngayle = Convert.ToDouble(kcct.CONGNGAYLE * luong1ngaycong * 3);
                     luongtangca = Convert.ToDouble(db.tb_TANGCA.Where(x => (x.NAM * 100 + x.THANG) == makycong && x.MANV == item.MANV).Sum(x => x.SOTIEN));
                     phucap = Convert.ToDouble(db.tb_NHANVIEN_PHUCAP.Where(x => x.MANV == item.MANV).Sum(x => x.SOTIEN));
-                    ungluong = Convert.ToDouble(db.tb_UNGLUONG.Where(x => x.MANV == item.MANV && (x.NAM * 100 + x.THANG) == makycong).Sum(x => x.SOTIEN) );
+                    ungluong = Convert.ToDouble(db.tb_UNGLUONG.Where(x => x.MANV == item.MANV && (x.NAM * 100 + x.THANG) == makycong).Sum(x => x.SOTIEN));
 
-                    thuclanh = luongngaythuong + luongphep + luongngayle + luongchunhat + luongtangca + phucap - ungluong;
+                    thuclanh = luongngaythuong + luongphep + luongkphep + luongngayle  + luongchunhat + luongtangca + phucap - ungluong;
+           
                     tb_BANGLUONG bl = new tb_BANGLUONG();
                     bl.MAKYCONG = makycong;
                     bl.MANV = item.MANV;
                     bl.HOTEN = item.HOTEN;
-                    bl.NGAYCONGTRONGTHANG = int.Parse(kcct.NGAYCONG.ToString());
+                    bl.NGAYCONGTRONGTHANG = int.Parse(kcct.TONGNGAYCONG.ToString());
                     bl.NGAYPHEP = luongphep;
                     bl.NGAYCHUNHAT = luongchunhat;
                     bl.NGAYLE = luongngayle;
@@ -71,6 +112,29 @@ namespace BusinessLayer
             }
 
         }
+        public void remove(int makycong)
+        {
+            // Lấy danh sách các bản ghi có MAKYCONG tương ứng
+            var listToRemove = db.tb_BANGLUONG.Where(x => x.MAKYCONG == makycong).ToList();
+
+            if (listToRemove.Any()) // Kiểm tra nếu có bản ghi để xóa
+            {
+                try
+                {
+                    db.tb_BANGLUONG.RemoveRange(listToRemove); // Xóa toàn bộ danh sách
+                    db.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Lỗi khi xóa: " + ex.Message);
+                }
+            }
+            else
+            {
+                
+            }
+        }
+
         public tb_BANGLUONG Update(tb_BANGLUONG bl)
         {
             try

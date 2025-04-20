@@ -32,12 +32,17 @@ namespace QLNHANSU.TINHLUONG
             loadData();
             loadNhanVien();
             loadPhuCap();
+            var pc = _phucap.getItemPC(1);
+            if (pc != null)
+            {
+                speSOTIEN.EditValue = pc.SOTIEN;
+            }
             cbPhuCap.SelectedIndexChanged += cbPhuCap_SelectedIndexChanged;
         }
 
         private void cbPhuCap_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var pc = _phucap.getItemPC(int.Parse(cbPhuCap.SelectedIndex.ToString()));
+            var pc = _phucap.getItemPC(int.Parse(cbPhuCap.SelectedValue.ToString()));
             if (pc != null)
             {
                 speSOTIEN.EditValue = pc.SOTIEN;

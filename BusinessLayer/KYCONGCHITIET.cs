@@ -18,6 +18,10 @@ namespace BusinessLayer
         {
 			return db.tb_KYCONGCHITIET.Where(x => x.MAKYCONG == makycong).ToList();
         }
+		public List<tb_KYCONGCHITIET>getList()
+        {
+			return db.tb_KYCONGCHITIET.ToList();
+        }
 		public void phatSinhKyCongChiTiet(int macty, int thang, int nam)
 		{
 			var lstNV = db.tb_NHANVIEN.ToList();

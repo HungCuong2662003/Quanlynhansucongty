@@ -52,6 +52,7 @@
             this.MAKYCONG = new DevExpress.XtraGrid.Columns.GridColumn();
             this.MANV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.HOTEN = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.NGAYLE = new DevExpress.XtraGrid.Columns.GridColumn();
             this.NGAYCONGTRONGTHANG = new DevExpress.XtraGrid.Columns.GridColumn();
             this.NGAYPHEP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.NGAYCHUNHAT = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -289,6 +290,7 @@
             this.MAKYCONG,
             this.MANV,
             this.HOTEN,
+            this.NGAYLE,
             this.NGAYCONGTRONGTHANG,
             this.NGAYPHEP,
             this.NGAYCHUNHAT,
@@ -316,12 +318,12 @@
             // 
             this.MAKYCONG.Caption = "Kỳ Công";
             this.MAKYCONG.FieldName = "MAKYCONG";
-            this.MAKYCONG.MaxWidth = 60;
+            this.MAKYCONG.MaxWidth = 200;
             this.MAKYCONG.MinWidth = 21;
             this.MAKYCONG.Name = "MAKYCONG";
             this.MAKYCONG.Visible = true;
             this.MAKYCONG.VisibleIndex = 0;
-            this.MAKYCONG.Width = 58;
+            this.MAKYCONG.Width = 91;
             // 
             // MANV
             // 
@@ -335,12 +337,23 @@
             // 
             this.HOTEN.Caption = "Họ Tên";
             this.HOTEN.FieldName = "HOTEN";
-            this.HOTEN.MaxWidth = 129;
+            this.HOTEN.MaxWidth = 200;
             this.HOTEN.MinWidth = 21;
             this.HOTEN.Name = "HOTEN";
             this.HOTEN.Visible = true;
             this.HOTEN.VisibleIndex = 1;
-            this.HOTEN.Width = 126;
+            this.HOTEN.Width = 91;
+            // 
+            // NGAYLE
+            // 
+            this.NGAYLE.Caption = "Công ngày lễ";
+            this.NGAYLE.DisplayFormat.FormatString = "n0";
+            this.NGAYLE.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.NGAYLE.FieldName = "NGAYLE";
+            this.NGAYLE.Name = "NGAYLE";
+            this.NGAYLE.Visible = true;
+            this.NGAYLE.VisibleIndex = 4;
+            this.NGAYLE.Width = 84;
             // 
             // NGAYCONGTRONGTHANG
             // 
@@ -351,7 +364,7 @@
             this.NGAYCONGTRONGTHANG.Name = "NGAYCONGTRONGTHANG";
             this.NGAYCONGTRONGTHANG.Visible = true;
             this.NGAYCONGTRONGTHANG.VisibleIndex = 2;
-            this.NGAYCONGTRONGTHANG.Width = 67;
+            this.NGAYCONGTRONGTHANG.Width = 69;
             // 
             // NGAYPHEP
             // 
@@ -364,7 +377,7 @@
             this.NGAYPHEP.Name = "NGAYPHEP";
             this.NGAYPHEP.Visible = true;
             this.NGAYPHEP.VisibleIndex = 3;
-            this.NGAYPHEP.Width = 67;
+            this.NGAYPHEP.Width = 69;
             // 
             // NGAYCHUNHAT
             // 
@@ -376,8 +389,8 @@
             this.NGAYCHUNHAT.MinWidth = 21;
             this.NGAYCHUNHAT.Name = "NGAYCHUNHAT";
             this.NGAYCHUNHAT.Visible = true;
-            this.NGAYCHUNHAT.VisibleIndex = 4;
-            this.NGAYCHUNHAT.Width = 100;
+            this.NGAYCHUNHAT.VisibleIndex = 5;
+            this.NGAYCHUNHAT.Width = 91;
             // 
             // UNGLUONG
             // 
@@ -385,8 +398,8 @@
             this.UNGLUONG.FieldName = "UNGLUONG";
             this.UNGLUONG.Name = "UNGLUONG";
             this.UNGLUONG.Visible = true;
-            this.UNGLUONG.VisibleIndex = 8;
-            this.UNGLUONG.Width = 30;
+            this.UNGLUONG.VisibleIndex = 9;
+            this.UNGLUONG.Width = 73;
             // 
             // NGAYTHUONG
             // 
@@ -398,8 +411,8 @@
             this.NGAYTHUONG.MinWidth = 21;
             this.NGAYTHUONG.Name = "NGAYTHUONG";
             this.NGAYTHUONG.Visible = true;
-            this.NGAYTHUONG.VisibleIndex = 5;
-            this.NGAYTHUONG.Width = 84;
+            this.NGAYTHUONG.VisibleIndex = 6;
+            this.NGAYTHUONG.Width = 86;
             // 
             // TANGCA
             // 
@@ -407,12 +420,12 @@
             this.TANGCA.DisplayFormat.FormatString = "n0";
             this.TANGCA.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.TANGCA.FieldName = "TANGCA";
-            this.TANGCA.MaxWidth = 51;
+            this.TANGCA.MaxWidth = 200;
             this.TANGCA.MinWidth = 21;
             this.TANGCA.Name = "TANGCA";
             this.TANGCA.Visible = true;
-            this.TANGCA.VisibleIndex = 6;
-            this.TANGCA.Width = 49;
+            this.TANGCA.VisibleIndex = 7;
+            this.TANGCA.Width = 80;
             // 
             // PHUCAP
             // 
@@ -424,8 +437,8 @@
             this.PHUCAP.MinWidth = 21;
             this.PHUCAP.Name = "PHUCAP";
             this.PHUCAP.Visible = true;
-            this.PHUCAP.VisibleIndex = 7;
-            this.PHUCAP.Width = 67;
+            this.PHUCAP.VisibleIndex = 8;
+            this.PHUCAP.Width = 62;
             // 
             // THUCLANH
             // 
@@ -437,8 +450,8 @@
             this.THUCLANH.MinWidth = 21;
             this.THUCLANH.Name = "THUCLANH";
             this.THUCLANH.Visible = true;
-            this.THUCLANH.VisibleIndex = 9;
-            this.THUCLANH.Width = 235;
+            this.THUCLANH.VisibleIndex = 10;
+            this.THUCLANH.Width = 87;
             // 
             // bar1
             // 
@@ -512,5 +525,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn PHUCAP;
         private DevExpress.XtraGrid.Columns.GridColumn THUCLANH;
         private DevExpress.XtraGrid.Columns.GridColumn UNGLUONG;
+        private DevExpress.XtraGrid.Columns.GridColumn NGAYLE;
     }
 }

@@ -52,9 +52,10 @@
             // 
             // btnCapNhat
             // 
-            this.btnCapNhat.Location = new System.Drawing.Point(307, 350);
+            this.btnCapNhat.Location = new System.Drawing.Point(263, 284);
+            this.btnCapNhat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCapNhat.Name = "btnCapNhat";
-            this.btnCapNhat.Size = new System.Drawing.Size(105, 48);
+            this.btnCapNhat.Size = new System.Drawing.Size(90, 39);
             this.btnCapNhat.TabIndex = 0;
             this.btnCapNhat.Text = "Cập Nhật";
             this.btnCapNhat.UseVisualStyleBackColor = true;
@@ -62,7 +63,8 @@
             // 
             // cldNgayCong
             // 
-            this.cldNgayCong.Location = new System.Drawing.Point(18, 18);
+            this.cldNgayCong.Location = new System.Drawing.Point(15, 15);
+            this.cldNgayCong.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.cldNgayCong.Name = "cldNgayCong";
             this.cldNgayCong.TabIndex = 1;
             this.cldNgayCong.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.cldNgayCong_DateSelected);
@@ -70,51 +72,57 @@
             // groupChamCong
             // 
             this.groupChamCong.Controls.Add(this.rdgChamCong);
-            this.groupChamCong.Location = new System.Drawing.Point(264, 18);
+            this.groupChamCong.Location = new System.Drawing.Point(226, 15);
+            this.groupChamCong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupChamCong.Name = "groupChamCong";
-            this.groupChamCong.Size = new System.Drawing.Size(328, 141);
+            this.groupChamCong.Size = new System.Drawing.Size(281, 115);
             this.groupChamCong.TabIndex = 2;
             this.groupChamCong.Text = "Chấm Công";
             // 
             // rdgChamCong
             // 
             this.rdgChamCong.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rdgChamCong.Location = new System.Drawing.Point(2, 28);
+            this.rdgChamCong.Location = new System.Drawing.Point(2, 23);
+            this.rdgChamCong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rdgChamCong.Name = "rdgChamCong";
             this.rdgChamCong.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem("P", "Nghỉ Phép"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem("V", "Vắng"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem("CNL", "Công Ngày Lễ"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem("CNCN", "Công Ngày Chủ Nhật")});
-            this.rdgChamCong.Size = new System.Drawing.Size(324, 111);
+            new DevExpress.XtraEditors.Controls.RadioGroupItem("CNCN", "Công Ngày Chủ Nhật"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem("X", "Đi làm ")});
+            this.rdgChamCong.Size = new System.Drawing.Size(277, 90);
             this.rdgChamCong.TabIndex = 0;
             // 
             // groupControl1
             // 
             this.groupControl1.Controls.Add(this.rdgThoiGianNghi);
-            this.groupControl1.Location = new System.Drawing.Point(266, 165);
+            this.groupControl1.Location = new System.Drawing.Point(228, 134);
+            this.groupControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(324, 161);
+            this.groupControl1.Size = new System.Drawing.Size(278, 131);
             this.groupControl1.TabIndex = 3;
             this.groupControl1.Text = "Thời Gian Nghỉ";
             // 
             // rdgThoiGianNghi
             // 
             this.rdgThoiGianNghi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rdgThoiGianNghi.Location = new System.Drawing.Point(2, 28);
+            this.rdgThoiGianNghi.Location = new System.Drawing.Point(2, 23);
+            this.rdgThoiGianNghi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rdgThoiGianNghi.Name = "rdgThoiGianNghi";
             this.rdgThoiGianNghi.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem("S", "Sáng"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem("C", "Chiều"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem("NN", "Nguyên Ngày")});
-            this.rdgThoiGianNghi.Size = new System.Drawing.Size(320, 131);
+            this.rdgThoiGianNghi.Size = new System.Drawing.Size(274, 106);
             this.rdgThoiGianNghi.TabIndex = 0;
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(429, 350);
+            this.btnThoat.Location = new System.Drawing.Point(368, 284);
+            this.btnThoat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(105, 48);
+            this.btnThoat.Size = new System.Drawing.Size(90, 39);
             this.btnThoat.TabIndex = 4;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
@@ -126,59 +134,61 @@
             this.groupControl2.Controls.Add(this.blID);
             this.groupControl2.Controls.Add(this.b2);
             this.groupControl2.Controls.Add(this.bl1);
-            this.groupControl2.Location = new System.Drawing.Point(18, 238);
+            this.groupControl2.Location = new System.Drawing.Point(15, 193);
+            this.groupControl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(206, 142);
+            this.groupControl2.Size = new System.Drawing.Size(177, 115);
             this.groupControl2.TabIndex = 5;
             this.groupControl2.Text = "Thông Tin ";
             // 
             // blHOTEN
             // 
             this.blHOTEN.AutoSize = true;
-            this.blHOTEN.Location = new System.Drawing.Point(60, 84);
+            this.blHOTEN.Location = new System.Drawing.Point(51, 68);
             this.blHOTEN.Name = "blHOTEN";
-            this.blHOTEN.Size = new System.Drawing.Size(60, 16);
+            this.blHOTEN.Size = new System.Drawing.Size(51, 13);
             this.blHOTEN.TabIndex = 3;
             this.blHOTEN.Text = "HỌ TÊN: ";
             // 
             // blID
             // 
             this.blID.AutoSize = true;
-            this.blID.Location = new System.Drawing.Point(26, 41);
+            this.blID.Location = new System.Drawing.Point(22, 33);
             this.blID.Name = "blID";
-            this.blID.Size = new System.Drawing.Size(24, 16);
+            this.blID.Size = new System.Drawing.Size(22, 13);
             this.blID.TabIndex = 2;
             this.blID.Text = "ID:";
             // 
             // b2
             // 
             this.b2.AutoSize = true;
-            this.b2.Location = new System.Drawing.Point(6, 84);
+            this.b2.Location = new System.Drawing.Point(5, 68);
             this.b2.Name = "b2";
-            this.b2.Size = new System.Drawing.Size(60, 16);
+            this.b2.Size = new System.Drawing.Size(51, 13);
             this.b2.TabIndex = 1;
             this.b2.Text = "HỌ TÊN: ";
             // 
             // bl1
             // 
             this.bl1.AutoSize = true;
-            this.bl1.Location = new System.Drawing.Point(6, 41);
+            this.bl1.Location = new System.Drawing.Point(5, 33);
             this.bl1.Name = "bl1";
-            this.bl1.Size = new System.Drawing.Size(24, 16);
+            this.bl1.Size = new System.Drawing.Size(22, 13);
             this.bl1.TabIndex = 0;
             this.bl1.Text = "ID:";
             // 
             // frmCapNhatNgayCong
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(655, 458);
+            this.ClientSize = new System.Drawing.Size(561, 372);
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.groupChamCong);
             this.Controls.Add(this.cldNgayCong);
             this.Controls.Add(this.btnCapNhat);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmCapNhatNgayCong";

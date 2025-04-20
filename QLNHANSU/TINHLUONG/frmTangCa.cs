@@ -22,6 +22,7 @@ namespace QLNHANSU.TINHLUONG
         NHANVIEN _nhanvien;
         TANGCA _tangca;
         LOAICA _lc;
+        BANGLUONG _bangluong;
         SYS_CONFIG _config;
         bool _them;
         int _id;
@@ -29,6 +30,7 @@ namespace QLNHANSU.TINHLUONG
         {
             _them = false;
             _tangca = new TANGCA();
+            _bangluong=new BANGLUONG();
             _nhanvien = new NHANVIEN();
             _lc = new LOAICA();
             _config = new SYS_CONFIG();
@@ -98,6 +100,11 @@ namespace QLNHANSU.TINHLUONG
         }
         void SaveDate()
         {
+            if (cbLoaiCa.SelectedValue==null)
+            {
+                MessageBox.Show("Hãy chọn loại tăng ca");
+                return;
+            }
             if (_them)
             {
                 tb_TANGCA tc = new tb_TANGCA();
@@ -109,8 +116,11 @@ namespace QLNHANSU.TINHLUONG
                 tc.THANG = DateTime.Now.Month;
                 tc.NAM = DateTime.Now.Year;
                 var lc = _lc.getItem(int.Parse(cbLoaiCa.SelectedValue.ToString()));
-                var cg = _config.getItem("TANGCA");
-                tc.SOTIEN = tc.SOGIO * lc.HESO * int.Parse(cg.Value);
+               
+                //MessageBox.Show(_bangluong.luong1ngaycong(DateTime.Now.Year * 100 + DateTime.Now.Month, int.Parse(sNV.EditValue.ToString())).ToString());
+
+                float luong1gio = (_bangluong.luong1ngaycong(DateTime.Now.Year * 100 + DateTime.Now.Month, int.Parse(sNV.EditValue.ToString()))) / 8;
+                tc.SOTIEN = tc.SOGIO * lc.HESO * luong1gio;
                 _tangca.Add(tc);
             }
             else
@@ -124,8 +134,10 @@ namespace QLNHANSU.TINHLUONG
                 tc.THANG = DateTime.Now.Month;
                 tc.NAM = DateTime.Now.Year;
                 var lc = _lc.getItem(int.Parse(cbLoaiCa.SelectedValue.ToString()));
-                var cg = _config.getItem("TANGCA");
-                tc.SOTIEN = tc.SOGIO * lc.HESO * int.Parse(cg.Value);
+                //var cg = _config.getItem("TANGCA");
+                //tc.SOTIEN = tc.SOGIO * lc.HESO * int.Parse(cg.Value);
+                float luong1gio = (_bangluong.luong1ngaycong(DateTime.Now.Year * 100 + DateTime.Now.Month, int.Parse(sNV.EditValue.ToString())))/8;
+                tc.SOTIEN = tc.SOGIO * lc.HESO * luong1gio;
                 _tangca.Update(tc);
             }
         }

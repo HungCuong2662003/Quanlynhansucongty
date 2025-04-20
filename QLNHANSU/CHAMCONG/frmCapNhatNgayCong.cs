@@ -42,8 +42,23 @@ namespace QLNHANSU.CHAMCONG
 
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
-            
+
+            if (_cNgay <= 0)
+            {
+                MessageBox.Show("Hãy chọn ngày cập nhật", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (rdgChamCong.SelectedIndex == -1)
+            {
+                MessageBox.Show("Vui lòng chọn để cập nhật lí do nghỉ!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             string _valueChamCong = rdgChamCong.Properties.Items[rdgChamCong.SelectedIndex].Value.ToString();
+            if (rdgThoiGianNghi.SelectedIndex == -1)
+            {
+                MessageBox.Show("Vui lòng chọn thời gian nghỉ!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             string _valueNgayNghi = rdgThoiGianNghi.Properties.Items[rdgThoiGianNghi.SelectedIndex].Value.ToString();
             string fieldName = "D" + _cNgay.ToString();
             var kcct = _kcct.getItem(_makycong, _manv);
@@ -59,6 +74,11 @@ namespace QLNHANSU.CHAMCONG
             Cuong_Functions.execQuery("UPDATE tb_KYCONGCHITIET SET " + fieldName + "='" + _valueChamCong + "'WHERE MAKYCONG=" + _makycong + "AND MANV=" + _manv);
 
             tb_BANGCONG_NHANVIEN_CHITIET bcctnv = _bcct_nv.getItem(_makycong, _manv, cldNgayCong.SelectionStart.Day);
+            if (bcctnv == null)
+            {
+                MessageBox.Show("Không tìm thấy bản ghi nào với thông tin đã cung cấp!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             bcctnv.KYHIEU = _valueChamCong;
             
             switch (_valueChamCong)
@@ -101,13 +121,13 @@ namespace QLNHANSU.CHAMCONG
                         if (_valueNgayNghi == "NN")
                         {
                             bcctnv.CONGNGAYLE = 1;
-                            bcctnv.NGAYCONG = 1;
+                            bcctnv.NGAYCONG = 0;
 
                         }
                         else
                         {
                             bcctnv.CONGNGAYLE = 0.5;
-                            bcctnv.NGAYCONG = 1;
+                            bcctnv.NGAYCONG = 0;
 
                         }
                     break;
@@ -124,6 +144,22 @@ namespace QLNHANSU.CHAMCONG
                         {
                             bcctnv.CONGCHUNHAT = 0.5;
                             bcctnv.NGAYCONG = 0;
+
+                        }
+                    break;
+                case "X":
+                    if (bcctnv.KYHIEU == _valueChamCong)
+
+                        if (_valueNgayNghi == "NN")
+                        {
+                            
+                            bcctnv.NGAYCONG = 1;
+
+                        }
+                        else
+                        {
+                          
+                            bcctnv.NGAYCONG = 0.5;
 
                         }
                     break;

@@ -25,6 +25,9 @@ namespace QLNHANSU
         string _shd;
         private void frmHopDongLaoDong_Load(object sender, EventArgs e)
         {
+            txtSOHD.Enabled = !true;
+            dtpNGAYBATDAU.Value=DateTime.Now;
+            dtpNGAYKETTHUC.Value=DateTime.Now.AddYears(1);
             _them = false;
             _hopdong = new HOPDONG_LAODONG();
             _nhanvien = new NHANVIEN();
@@ -47,7 +50,7 @@ namespace QLNHANSU
             btnXoa.Enabled = kt;
             btnDong.Enabled = kt;
             btnIn.Enabled = kt;
-            txtSOHD.Enabled = !kt;
+            
             dtpNGAYBATDAU.Enabled = !kt;
             dtpNGAYKETTHUC.Enabled = !kt;
             dtpNGAYKY.Enabled = !kt;

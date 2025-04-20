@@ -22,3 +22,15 @@ D:\winform\QLNHANSU_CHAMCONG\DataLayer\obj\Debug\DataLayer.csproj.CoreCompileInp
 D:\winform\QLNHANSU_CHAMCONG\DataLayer\obj\Debug\DataLayer.csproj.Up2Date
 D:\winform\QLNHANSU_CHAMCONG\DataLayer\obj\Debug\DataLayer.dll
 D:\winform\QLNHANSU_CHAMCONG\DataLayer\obj\Debug\DataLayer.pdb
+D:\winform\QLNHANSU_CHAMCONG\QLNHANSU_CHAMCONG\DataLayer\bin\Debug\DataLayer.dll.config
+D:\winform\QLNHANSU_CHAMCONG\QLNHANSU_CHAMCONG\DataLayer\bin\Debug\DataLayer.dll
+D:\winform\QLNHANSU_CHAMCONG\QLNHANSU_CHAMCONG\DataLayer\bin\Debug\DataLayer.pdb
+D:\winform\QLNHANSU_CHAMCONG\QLNHANSU_CHAMCONG\DataLayer\bin\Debug\EntityFramework.dll
+D:\winform\QLNHANSU_CHAMCONG\QLNHANSU_CHAMCONG\DataLayer\bin\Debug\EntityFramework.SqlServer.dll
+D:\winform\QLNHANSU_CHAMCONG\QLNHANSU_CHAMCONG\DataLayer\bin\Debug\EntityFramework.xml
+D:\winform\QLNHANSU_CHAMCONG\QLNHANSU_CHAMCONG\DataLayer\bin\Debug\EntityFramework.SqlServer.xml
+D:\winform\QLNHANSU_CHAMCONG\QLNHANSU_CHAMCONG\DataLayer\obj\Debug\DataLayer.csproj.AssemblyReference.cache
+D:\winform\QLNHANSU_CHAMCONG\QLNHANSU_CHAMCONG\DataLayer\obj\Debug\DataLayer.csproj.CoreCompileInputs.cache
+D:\winform\QLNHANSU_CHAMCONG\QLNHANSU_CHAMCONG\DataLayer\obj\Debug\DataLayer.csproj.Up2Date
+D:\winform\QLNHANSU_CHAMCONG\QLNHANSU_CHAMCONG\DataLayer\obj\Debug\DataLayer.dll
+D:\winform\QLNHANSU_CHAMCONG\QLNHANSU_CHAMCONG\DataLayer\obj\Debug\DataLayer.pdb

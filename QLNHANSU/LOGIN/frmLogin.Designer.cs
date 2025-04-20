@@ -112,6 +112,7 @@
             // 
             // frmLogin
             // 
+            this.AcceptButton = this.btnLOGIN;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(573, 280);
@@ -124,6 +125,7 @@
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Phần Mền Quản Lý Chấm Công";
             this.Load += new System.EventHandler(this.frmLogin_Load);
             this.ResumeLayout(false);

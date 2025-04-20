@@ -27,7 +27,15 @@ namespace QLNHANSU.Reports
         
         public void BindData()
         {
-            lblTile.Text = "BẢNG CÔNG TỔNG HỢP THÁNG  "+ _title.Substring(4)+ "NĂM "+ _title.Substring(0,4) ;
+            if (_title == "")
+            {
+                lblTile.Text = "BẢNG CÔNG TỔNG HỢP";
+            }
+            else
+            {
+                lblTile.Text = "BẢNG CÔNG TỔNG HỢP THÁNG  " + _title.Substring(4) + "NĂM " + _title.Substring(0, 4);
+            }
+            
             MANV.DataBindings.Add("Text", DataSource, "MANV");
             HOTEN.DataBindings.Add("Text", DataSource, "HOTEN");
             D1.DataBindings.Add("Text", DataSource, "D1");
@@ -62,11 +70,12 @@ namespace QLNHANSU.Reports
             D30.DataBindings.Add("Text", DataSource, "D30");
             D31.DataBindings.Add("Text", DataSource, "D31");
             NGAYCONG.DataBindings.Add("Text", DataSource, "NGAYCONG");
-            PHEP.DataBindings.Add("Text", DataSource, "PHEP");
-            VANG.DataBindings.Add("Text", DataSource, "VANG");          
-            LE.DataBindings.Add("Text", DataSource, "LE");
-            CN.DataBindings.Add("Text", DataSource, "CN");
-            TONG.DataBindings.Add("Text", DataSource, "TONG");
+      
+            PHEP.DataBindings.Add("Text", DataSource, "NGAYPHEP");
+            VANG.DataBindings.Add("Text", DataSource, "NGHIKHONGPHEP");          
+            LE.DataBindings.Add("Text", DataSource, "CONGNGAYLE");
+            CN.DataBindings.Add("Text", DataSource, "CONGCHUNHAT");
+            TONG.DataBindings.Add("Text", DataSource, "TONGNGAYCONG");
         }
     }
 }

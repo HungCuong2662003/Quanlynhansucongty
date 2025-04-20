@@ -21,18 +21,26 @@ namespace QLNHANSU.TINHLUONG
         {
             InitializeComponent();
         }
+        tb_LOGIN tb_LOGIN = new tb_LOGIN();
         BANGLUONG _bangluong;
         List<tb_BANGLUONG> _listBangLuong;
+        KYCONGCHITIET _kcct;
         int _namky;
         private void frmBangLuong_Load(object sender, EventArgs e)
         {
-            _bangluong = new BANGLUONG();
+            _bangluong = new BANGLUONG(); 
+            _kcct = new KYCONGCHITIET();
             cbNam.Text = DateTime.Now.Year.ToString();
             cbThang.Text = DateTime.Now.Month.ToString();
         }
 
         private void btnTinhLuong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (!_kcct.getList(int.Parse(cbNam.Text) * 100 + int.Parse(cbThang.Text)).Any())
+            {
+                MessageBox.Show("Bạn chưa chốt công tháng này");
+                return;
+            }
             _bangluong.TinhLuongNhanVien(int.Parse(cbNam.Text)*100+int.Parse(cbThang.Text));
             loadData();
 

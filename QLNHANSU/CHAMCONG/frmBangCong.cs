@@ -1,6 +1,8 @@
 ﻿using BusinessLayer;
 using DataLayer;
 using DevExpress.XtraEditors;
+using DevExpress.XtraReports.UI;
+using QLNHANSU.Reports;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,11 +21,13 @@ namespace QLNHANSU.CHAMCONG
         {
             InitializeComponent();
         }
+        KYCONGCHITIET _kcct;
         KYCONG _kycong;
         bool _them;
         int _makycong;
         private void frmBangCong_Load(object sender, EventArgs e)
         {
+            _kcct = new KYCONGCHITIET();
             _them = false;
             _kycong = new KYCONG();
             _showHide(true);
@@ -54,9 +58,9 @@ namespace QLNHANSU.CHAMCONG
         {
             _showHide(false);
             _them = true;
-            cbThang.Text = DateTime.Now.ToString();
-            cbNam.Text = DateTime.Now.ToString();
-           
+            cbNam.Text = DateTime.Now.Year.ToString();
+            cbThang.Text = DateTime.Now.Month.ToString();
+
         }
 
         private void btnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -110,12 +114,17 @@ namespace QLNHANSU.CHAMCONG
         }
         private void btnHuy_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            _showHide(true);
+            _them = false;
         }
 
         private void btnIn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+         
+            List<tb_KYCONGCHITIET> lst = _kcct.getList();
+            rptBangCongTongHop rpt = new rptBangCongTongHop(lst, "");
 
+            rpt.ShowPreviewDialog();
         }
 
         private void btnDong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

@@ -27,8 +27,18 @@ namespace QLNHANSU.Reports
         {
             _nhanvien = new NHANVIEN();
             _bcct_nv=new BANGCONG_NV_CT();
+            // Lấy năm hiện tại
+            int currentYear = DateTime.Now.Year;
+
+            // Thêm 10 năm từ năm hiện tại về trước vào ComboBox
+            for (int i = 0; i < 10; i++)
+            {
+                cbo_nam.Items.Add(currentYear - i);
+            }
             loadNhanVien();
             cbo_kicong.SelectedIndex = DateTime.Now.Month-1;
+            cbo_nam.SelectedItem = currentYear;
+
         }
         void loadNhanVien()
         {
@@ -40,7 +50,22 @@ namespace QLNHANSU.Reports
 
         private void btn_in_Click(object sender, EventArgs e)
         {
-            var lst = _bcct_nv.getBangCongCT(DateTime.Now.Year*100 + int.Parse(cbo_kicong.Text) , int.Parse(cbo_NhanVien.SelectedValue.ToString()));
+            if (cbo_nam == null)
+            {
+                MessageBox.Show("Hãy chọn năm ");
+                return;
+            }
+            if (cbo_kicong == null)
+            {
+                MessageBox.Show("Hãy chọn kì công ");
+                return;
+            }
+            if (cbo_NhanVien == null)
+            {
+                MessageBox.Show("Hãy chọn kì nhân viên");
+                return;
+            }
+            var lst = _bcct_nv.getBangCongCT(int.Parse(cbo_nam.Text) * 100 + int.Parse(cbo_kicong.Text) , int.Parse(cbo_NhanVien.SelectedValue.ToString()));
             rptBangCongCT rpt =new rptBangCongCT(lst);
             rpt.ShowPreviewDialog();
         }

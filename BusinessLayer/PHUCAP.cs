@@ -11,6 +11,56 @@ namespace BusinessLayer
     public class PHUCAP
     {
         QLNHANSUEntities db = new QLNHANSUEntities();
+     
+        public List<tb_PHUCAP> getList()
+        {
+            return db.tb_PHUCAP.ToList();
+        }public tb_PHUCAP getList(int id)
+        {
+            return db.tb_PHUCAP.FirstOrDefault(x => x.IDPC == id);
+        }
+      
+        public tb_PHUCAP Add(tb_PHUCAP pc)
+        {
+            try
+            {
+                db.tb_PHUCAP.Add(pc);
+                db.SaveChanges();
+                return pc;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Lỗi: " + ex.Message);
+            }
+        }
+        public tb_PHUCAP Update(tb_PHUCAP pc)
+        {
+            try
+            {
+                var _bp = db.tb_PHUCAP.FirstOrDefault(x => x.IDPC == pc.IDPC);
+                _bp.TENPC = pc.TENPC;
+                db.SaveChanges();
+                return pc;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Lỗi: " + ex.Message);
+            }
+        }
+        public void Remove(int id)
+        {
+
+            try
+            {
+                var _bp = db.tb_PHUCAP.FirstOrDefault(x => x.IDPC == id);
+                db.tb_PHUCAP.Remove(_bp);
+                db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Lỗi: " + ex.Message);
+            }
+        }
         public tb_NHANVIEN_PHUCAP getItem(int id)
         {
             return db.tb_NHANVIEN_PHUCAP.FirstOrDefault(x =>x.ID == id);

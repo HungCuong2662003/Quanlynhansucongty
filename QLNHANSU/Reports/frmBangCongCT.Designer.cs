@@ -36,12 +36,16 @@
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.cbo_kicong = new System.Windows.Forms.ComboBox();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.cbo_nam = new System.Windows.Forms.ComboBox();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.cbo_nam);
+            this.panelControl1.Controls.Add(this.labelControl3);
             this.panelControl1.Controls.Add(this.btn_dong);
             this.panelControl1.Controls.Add(this.btn_in);
             this.panelControl1.Controls.Add(this.cbo_NhanVien);
@@ -80,16 +84,16 @@
             // cbo_NhanVien
             // 
             this.cbo_NhanVien.FormattingEnabled = true;
-            this.cbo_NhanVien.Location = new System.Drawing.Point(210, 110);
+            this.cbo_NhanVien.Location = new System.Drawing.Point(100, 110);
             this.cbo_NhanVien.Name = "cbo_NhanVien";
-            this.cbo_NhanVien.Size = new System.Drawing.Size(121, 21);
+            this.cbo_NhanVien.Size = new System.Drawing.Size(307, 21);
             this.cbo_NhanVien.TabIndex = 3;
             // 
             // labelControl2
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(88, 109);
+            this.labelControl2.Location = new System.Drawing.Point(19, 109);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(75, 18);
             this.labelControl2.TabIndex = 2;
@@ -111,7 +115,7 @@
             "10",
             "11",
             "12"});
-            this.cbo_kicong.Location = new System.Drawing.Point(210, 66);
+            this.cbo_kicong.Location = new System.Drawing.Point(272, 59);
             this.cbo_kicong.Name = "cbo_kicong";
             this.cbo_kicong.Size = new System.Drawing.Size(121, 21);
             this.cbo_kicong.TabIndex = 1;
@@ -120,11 +124,29 @@
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(88, 65);
+            this.labelControl1.Location = new System.Drawing.Point(247, 59);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(54, 18);
+            this.labelControl1.Size = new System.Drawing.Size(19, 18);
             this.labelControl1.TabIndex = 0;
-            this.labelControl1.Text = "Kì công";
+            this.labelControl1.Text = "Kì ";
+            // 
+            // cbo_nam
+            // 
+            this.cbo_nam.FormattingEnabled = true;
+            this.cbo_nam.Location = new System.Drawing.Point(100, 60);
+            this.cbo_nam.Name = "cbo_nam";
+            this.cbo_nam.Size = new System.Drawing.Size(121, 21);
+            this.cbo_nam.TabIndex = 7;
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl3.Appearance.Options.UseFont = true;
+            this.labelControl3.Location = new System.Drawing.Point(51, 60);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(34, 18);
+            this.labelControl3.TabIndex = 6;
+            this.labelControl3.Text = "Năm";
             // 
             // frmBangCongCT
             // 
@@ -151,5 +173,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private System.Windows.Forms.ComboBox cbo_kicong;
         private DevExpress.XtraEditors.SimpleButton btn_dong;
+        private System.Windows.Forms.ComboBox cbo_nam;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
     }
 }

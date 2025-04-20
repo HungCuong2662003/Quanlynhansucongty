@@ -29,12 +29,12 @@ namespace QLNHANSU.LOGIN
         {
             string Usernam = txtUSERNAME.Text;
             string Password = txtPASS.Text;
-            CheckLogin(Usernam,Password);
+            CheckLogin(Usernam, Password);
         }
-        private void CheckLogin( string Usernam, string Password)
+        private void CheckLogin(string Usernam, string Password)
         {
             var user = db.tb_LOGIN.Where(u => u.USERNAME.Equals(Usernam)).ToList();
-            if(user.Count() > 0 )
+            if (user.Count() > 0)
             {
                 if (user[0].PASS.Equals(Password))
                 {

@@ -50,12 +50,18 @@ namespace QLNHANSU.CHAMCONG
         public void loadBangCong()
         {
             _kcct = new KYCONGCHITIET();
-            gcBangCongChiTiet.DataSource = _kcct.getList(int.Parse(cbNam.Text) * 100 + int.Parse(cbThang.Text));
+            _makycong = int.Parse(cbNam.Text) * 100 + int.Parse(cbThang.Text);
+            gcBangCongChiTiet.DataSource = _kcct.getList(_makycong);
             CustomView(int.Parse(cbThang.Text), int.Parse(cbNam.Text));
             gvBangCongChiTiet.OptionsBehavior.Editable = false;
         }
         private void btnPhatSinhKyCong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if(_kycong.getItem(int.Parse(cbNam.Text) * 100 + int.Parse(cbThang.Text)) == null)
+            {
+                MessageBox.Show("Chưa có lệnh phát sinh bảng công trong kì này", "Thông Báo");
+                return;
+            }
             
             if (_kycong.KiemTraPhatSinhKyCong(int.Parse(cbNam.Text)*100+int.Parse(cbThang.Text)))
             {

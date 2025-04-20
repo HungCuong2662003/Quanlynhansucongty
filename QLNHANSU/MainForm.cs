@@ -1,4 +1,5 @@
-﻿using QLNHANSU.CHAMCONG;
+﻿using DataLayer;
+using QLNHANSU.CHAMCONG;
 using QLNHANSU.LOGIN;
 using QLNHANSU.Reports;
 using QLNHANSU.TINHLUONG;
@@ -19,6 +20,7 @@ namespace QLNHANSU
         {
             InitializeComponent();
         }
+
         void openForm(Type typeForm)
         {
             foreach (var frm in MdiChildren)
@@ -137,6 +139,16 @@ namespace QLNHANSU
         {
             frmBangCongCT frm = new frmBangCongCT();
             frm.ShowDialog();
+        }
+
+        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            openForm(typeof(frmphucap));
+        }
+
+        private void ribbonControl1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
